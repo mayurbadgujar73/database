@@ -1,0 +1,388 @@
+mysql> show databases;
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| app                |
+| app1               |
+| app3               |
+| apppu              |
+| appu               |
+| appu1              |
+| assignment         |
+| csp                |
+| day2               |
+| dharni             |
+| dharnii            |
+| emartdb            |
+| emp                |
+| exam               |
+| ganu               |
+| java               |
+| km                 |
+| monstee            |
+| monster            |
+| my_practice        |
+| myapp              |
+| mydata             |
+| mydb               |
+| mydemodata         |
+| mypp1              |
+| mysql              |
+| new1               |
+| part1              |
+| poo                |
+| prithvi            |
+| ratna              |
+| rock               |
+| rohan              |
+| rooftop            |
+| rushiii            |
+| saurabh            |
+| sav                |
+| savi               |
+| shubham            |
+| sowrabh            |
+| sowrabh1           |
+| study              |
+| test               |
+| testdb             |
+| vita               |
+| vita_db1           |
+| vita_db12          |
+| vita_sa            |
+| vitainfo           |
+| vitasaurabh        |
++--------------------+
+51 rows in set (0.00 sec)
+
+mysql> create database employee;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> use employee
+Database changed
+mysql> select * from employee;
+ERROR 1146 (42S02): Table 'employee.employee' doesn't exist
+
+mysql> create table emp(id int, name varchar(20),number int);
+Query OK, 0 rows affected (0.28 sec)
+
+mysql> insert into emp values (1,'ram',14425);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into emp values (2,'shyam',144277),(3,'gangaram',12562),(4,'sita',2178236),(5,'laksham
+',737789),(6,'kaikai',21765),(7,'bhibhishan',23762),(8,'suparnaka',2347867),(9,'hanuman',37864),(10,
+'rawan',47868);
+Query OK, 9 rows affected (0.03 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++------+------------+---------+
+| id   | name       | number  |
++------+------------+---------+
+|    1 | ram        |   14425 |
+|    2 | shyam      |  144277 |
+|    3 | gangaram   |   12562 |
+|    4 | sita       | 2178236 |
+|    5 | laksham    |  737789 |
+|    6 | kaikai     |   21765 |
+|    7 | bhibhishan |   23762 |
+|    8 | suparnaka  | 2347867 |
+|    9 | hanuman    |   37864 |
+|   10 | rawan      |   47868 |
++------+------------+---------+
+10 rows in set (0.00 sec)
+
+
+mysql> update emp set name='bibhishan' where id=7;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from emp;
++------+-----------+---------+
+| id   | name      | number  |
++------+-----------+---------+
+|    1 | ram       |   14425 |
+|    2 | shyam     |  144277 |
+|    3 | gangaram  |   12562 |
+|    4 | sita      | 2178236 |
+|    5 | laksham   |  737789 |
+|    6 | kaikai    |   21765 |
+|    7 | bibhishan |   23762 |
+|    8 | suparnaka | 2347867 |
+|    9 | hanuman   |   37864 |
+|   10 | rawan     |   47868 |
++------+-----------+---------+
+10 rows in set (0.00 sec)
+
+
+mysql> delete from emp where id=2;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from emp;
++------+-----------+---------+
+| id   | name      | number  |
++------+-----------+---------+
+|    1 | ram       |   14425 |
+|    3 | gangaram  |   12562 |
+|    4 | sita      | 2178236 |
+|    5 | laksham   |  737789 |
+|    6 | kaikai    |   21765 |
+|    7 | bibhishan |   23762 |
+|    8 | suparnaka | 2347867 |
+|    9 | hanuman   |   37864 |
+|   10 | rawan     |   47868 |
++------+-----------+---------+
+9 rows in set (0.00 sec)
+
+mysql> alter table emp add primary key(id);
+Query OK, 9 rows affected (0.37 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select * from emp;
++----+-----------+---------+
+| id | name      | number  |
++----+-----------+---------+
+|  1 | ram       |   14425 |
+|  3 | gangaram  |   12562 |
+|  4 | sita      | 2178236 |
+|  5 | laksham   |  737789 |
+|  6 | kaikai    |   21765 |
+|  7 | bibhishan |   23762 |
+|  8 | suparnaka | 2347867 |
+|  9 | hanuman   |   37864 |
+| 10 | rawan     |   47868 |
++----+-----------+---------+
+9 rows in set (0.00 sec)
+
+mysql> insert into emp values(1,'kishan',3645);
+ERROR 1062 (23000): Duplicate entry '1' for key 'PRIMARY'
+mysql>
+mysql> describe emp;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| id     | int(11)     | NO   | PRI | 0       |       |
+| name   | varchar(20) | YES  |     | NULL    |       |
+| number | int(11)     | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.07 sec)
+
+mysql> show tables;
++--------------------+
+| Tables_in_employee |
++--------------------+
+| emp                |
++--------------------+
+1 row in set (0.01 sec)
+
+
+mysql> create table datatype(
+    -> a tinyint,
+    -> b smallint,
+    -> c mediumint,
+    -> d bigint,
+    -> e decimal(8,2),
+    -> f double(8,2),
+    -> g float);
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> select * from datatype;
+Empty set (0.00 sec)
+
+
+mysql> insert into datatype values
+    -> (16,254,33456,333456,999999.99,9999.9,799.56);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from datatype;
++------+------+-------+--------+-----------+---------+--------+
+| a    | b    | c     | d      | e         | f       | g      |
++------+------+-------+--------+-----------+---------+--------+
+|   16 |  254 | 33456 | 333456 | 999999.99 | 9999.90 | 799.56 |
++------+------+-------+--------+-----------+---------+--------+
+1 row in set (0.01 sec)
+
+mysql> create table mydate1 (date date);
+Query OK, 0 rows affected (0.08 sec)
+
+
+mysql> insert into mydate1 value
+    -> (now());
+Query OK, 1 row affected, 1 warning (0.04 sec)
+
+mysql> select * from mydate1;
++------------+
+| date       |
++------------+
+| 2019-08-26 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> create table special (id int auto_increment primary key,membership enum('silver','gold','plat
+inum'),hobbies set('swimming','cricket','football'));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> select * from special;
+Empty set (0.01 sec)
+
+mysql> show special;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your
+MySQL server version for the right syntax to use near 'special' at line 1
+mysql> describe special;
++------------+--------------------------------------+------+-----+---------+----------------+
+| Field      | Type                                 | Null | Key | Default | Extra          |
++------------+--------------------------------------+------+-----+---------+----------------+
+| id         | int(11)                              | NO   | PRI | NULL    | auto_increment |
+| membership | enum('silver','gold','platinum')     | YES  |     | NULL    |                |
+| hobbies    | set('swimming','cricket','football') | YES  |     | NULL    |                |
++------------+--------------------------------------+------+-----+---------+----------------+
+3 rows in set (0.03 sec)
+
+mysql> insert into special values
+    -> (membership,hobbies);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into special
+    -> (membership,hobbies) values
+    -> ('silver','football');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from special;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
++----+------------+----------+
+1 row in set (0.01 sec)
+
+mysql> insert into special
+    -> (membership,hobbies) values
+    -> ('silver','football','cricket');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into special
+    -> (membership,hobbies) values
+    -> ('silver','football'),
+    -> ('gold','cricket'),
+    -> ('platinum','swimming');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from special;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  3 | gold       | cricket  |
+|  4 | platinum   | swimming |
++----+------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from special
+    -> order by membership asc;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  3 | gold       | cricket  |
+|  4 | platinum   | swimming |
++----+------------+----------+
+4 rows in set (0.02 sec)
+
+mysql> insert into special
+    -> (membership,hobbies) values
+    -> ('silver','swimming'),
+    -> ('silver','cricket');
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from special
+    -> ;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  3 | gold       | cricket  |
+|  4 | platinum   | swimming |
+|  5 | silver     | swimming |
+|  6 | silver     | cricket  |
++----+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from special
+    -> order by membership asc;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  5 | silver     | swimming |
+|  6 | silver     | cricket  |
+|  3 | gold       | cricket  |
+|  4 | platinum   | swimming |
++----+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from special
+    -> order by hobbies desc;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  3 | gold       | cricket  |
+|  6 | silver     | cricket  |
+|  4 | platinum   | swimming |
+|  5 | silver     | swimming |
++----+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from special
+    -> order by membership ;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  5 | silver     | swimming |
+|  6 | silver     | cricket  |
+|  3 | gold       | cricket  |
+|  4 | platinum   | swimming |
++----+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from special
+    -> order by membership desc;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  4 | platinum   | swimming |
+|  3 | gold       | cricket  |
+|  1 | silver     | football |
+|  2 | silver     | football |
+|  5 | silver     | swimming |
+|  6 | silver     | cricket  |
++----+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select * from special
+    -> order by id desc;
++----+------------+----------+
+| id | membership | hobbies  |
++----+------------+----------+
+|  6 | silver     | cricket  |
+|  5 | silver     | swimming |
+|  4 | platinum   | swimming |
+|  3 | gold       | cricket  |
+|  2 | silver     | football |
+|  1 | silver     | football |
++----+------------+----------+
+6 rows in set (0.00 sec)
+
+mysql>
+
+	
